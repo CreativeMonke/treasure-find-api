@@ -15,7 +15,7 @@ var transporter = nodemailer.createTransport({
   port: 587,
   auth: {
     user: "api",
-    pass: "170cb24dbf3d1da78197d663bf50a916",
+    pass: "c8913540767574ef78871f8435e67647",
   },
 });
 /* Debug
@@ -56,7 +56,7 @@ export async function sendVerificationEmail(req, res) {
       await tempChange.save();
 
       const mailOptions = {
-        from: "support.roamify@treasurefindonigim.cloud",
+        from: "support.roamify@drbprojects.eu",
         to: email,
         subject: "Verification Code",
         text: `Please use the following code to verify your information: ${verificationCode}`,

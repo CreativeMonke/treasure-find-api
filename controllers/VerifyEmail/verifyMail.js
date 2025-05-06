@@ -9,7 +9,7 @@ var transporter = nodemailer.createTransport({
   port: 587,
   auth: {
     user: "api",
-    pass: "170cb24dbf3d1da78197d663bf50a916"
+    pass: "c8913540767574ef78871f8435e67647"
   }
 });
 
@@ -38,7 +38,7 @@ export default async function SendVerificationEmail(tempUser) {
   tempUser.verificationCode = verificationCode;
   await tempUser.save();
   const mailOptions = {
-    from: 'support.onigim2024@treasurefindonigim.cloud',
+    from: 'support.onigim2024@drbprojects.eu',
     to: [tempUser.email],                // Recipient's email
     subject: 'Verificare adresa e-mail',
     text: `Vă rugăm să folosiți următorul cod pentru a verifica adresa de e-mail: ${verificationCode}`, // Fallback text version
