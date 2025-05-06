@@ -58,27 +58,29 @@ export async function sendVerificationEmail(req, res) {
       const mailOptions = {
         from: "support.roamify@drbprojects.eu",
         to: email,
-        subject: "Verification Code",
-        text: `Please use the following code to verify your information: ${verificationCode}`,
+        subject: "Your Roamify Verification Code",
+        text: `Please use the following code to verify your action: ${verificationCode}`,
         html: `
-        <div style="font-family: Arial, sans-serif; color: #333; text-align: center; padding: 20px;">
-          <img src="https://platform-treasure-find.vercel.app/icons/logo/logo.png" alt="Email Profile Icon" style="width: 100px; height: auto; margin-bottom: 20px;">
-          <h1 style="color: #007BFF;">Welcome to Roamify!</h1>
-          <p style="font-size: 16px; color: #666;">Thank you for using our service! Please verify your email address to continue.</p>
-          <div style="margin: 20px;">
-            <p style="font-size: 24px; font-weight: bold; color: #000;">Verification Code:</p>
-            <div style="background-color: #E0E0E0; padding: 10px; margin: 20px auto; width: 200px; font-size: 22px; font-weight: bold; border-radius: 5px; color: #000;">
-              ${verificationCode}
+          <div style="font-family: Arial, sans-serif; color: #333; text-align: center; padding: 20px;">
+            <img src="https://platform-treasure-find.vercel.app/icons/logo/logo.png" alt="Roamify Logo" style="width: 100px; height: auto; margin-bottom: 20px;">
+            <h1 style="color: #007BFF;">Roamify Verification</h1>
+            <p style="font-size: 16px; color: #666;">You're almost done! Please use the verification code below to proceed with your request.</p>
+            <div style="margin: 20px;">
+              <p style="font-size: 24px; font-weight: bold; color: #000;">Verification Code:</p>
+              <div style="background-color: #E0E0E0; padding: 10px; margin: 20px auto; width: 200px; font-size: 22px; font-weight: bold; border-radius: 5px; color: #000;">
+                ${verificationCode}
+              </div>
+              <p style="font-size: 16px; color: #666;">Enter this code on our platform to complete the verification process.</p>
+              <p style="font-size: 14px; color: #999;">This code will expire shortly for your security.</p>
             </div>
-            <p style="font-size: 16px; color: #666;">Enter this code on our platform to complete the verification process.</p>
+            <footer style="font-size: 12px; color: #777; margin-top: 20px;">
+              <p>If you did not request this email, please ignore it.</p>
+              <p>Need help? Contact us at <a href="mailto:treasure.find.oni2024@gmail.com">treasure.find.oni2024@gmail.com</a></p>
+            </footer>
           </div>
-          <footer style="font-size: 12px; color: #777; margin-top: 20px;">
-            <p>If you did not request this email, please ignore it.</p>
-            <p>For assistance, contact <a href="mailto:treasure.find.oni2024@gmail.com">treasure.find.oni2024@gmail.com</a></p>
-          </footer>
-        </div>
-      `,
+        `,
       };
+      
 
       await transporter.sendMail(mailOptions);
 
